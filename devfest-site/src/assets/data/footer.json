@@ -1,0 +1,10 @@
+{
+  "socialLinks": [
+    { "iconName": "twitter", "url": "https://twitter.com/GDGCity", "ariaLabel": "Follow us on Twitter" },
+    { "iconName": "linkedin", "url": "https://linkedin.com/company/gdgcity", "ariaLabel": "Connect on LinkedIn" },
+    { "iconName": "youtube", "url": "https://youtube.com/c/GDGCityChannel", "ariaLabel": "Subscribe on YouTube" },
+    { "iconName": "instagram", "url": "https://instagram.com/gdgcity", "ariaLabel": "Follow us on Instagram" }
+  ],
+  "copyrightText": "© {year} Your GDG Chapter Name. All rights reserved.",
+  "contactEmail": "contact@yourgdgchapter.org"
+}

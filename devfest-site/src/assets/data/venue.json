@@ -1,0 +1,30 @@
+{
+  "name": "The Grand Horizon Convention Centre",
+  "address": "123 Ocean Drive, Dona Paula, Goa 403004, India",
+  "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15382.089824970096!2d73.80020275140382!3d15.450659749404072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc0c9b0eab77b%3A0x4928709d0a288556!2sDona%20Paula%20View%20Point!5e0!3m2!1sen!2sin!4v1678886400000!5m2!1sen!2sin",
+  "directions": {
+    "car": {
+      "title": "Driving Directions",
+      "details": [
+        "From Panjim: Head south on NH66, take the Dona Paula exit. Follow signs for 'The Grand Horizon'.",
+        "From Airport (GOI): Approximately 45 mins drive via NH366 and NH66.",
+        "Complimentary parking is available on-site for all attendees."
+      ]
+    },
+    "train": {
+      "title": "By Train",
+      "details": [
+        "Nearest Railway Station: Karmali (KRMI) - 15 km.",
+        "Madgaon Junction (MAO) - 35 km, offers wider connectivity.",
+        "Pre-paid taxis and app-based ride services are available from both stations."
+      ]
+    },
+    "bus": {
+      "title": "By Public Bus",
+      "details": [
+        "Frequent bus services connect Panjim KTC Bus Stand to Dona Paula circle.",
+        "The venue is a short 5-minute walk from the 'Dona Paula Jetty' bus stop."
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "speaker-1",
+    "name": "Dr. Evelyn Reed",
+    "talkTitle": "Angular Beyond the Basics: Performance & Scalability",
+    "bio": "Evelyn is a Google Developer Expert in Angular and a seasoned software architect with over 15 years of experience building large-scale web applications.",
+    "photoUrl": "https://placehold.co/300x300/E0BBE4/957DAD/png?text=Evelyn+R.",
+    "socialLinks": [
+      { "iconName": "twitter", "url": "https://twitter.com/evelyn_reed_dev", "ariaLabel": "Evelyn Reed on Twitter" },
+      { "iconName": "linkedin", "url": "https://linkedin.com/in/evelynreeddev", "ariaLabel": "Evelyn Reed on LinkedIn" }
+    ]
+  },
+  {
+    "id": "speaker-2",
+    "name": "Marcus Chen",
+    "talkTitle": "Mastering Tailwind CSS for Modern UI Design",
+    "bio": "Marcus is a UI/UX enthusiast and frontend developer specializing in creating beautiful and accessible user interfaces with Tailwind CSS and modern JavaScript frameworks.",
+    "photoUrl": "https://placehold.co/300x300/957DAD/E0BBE4/png?text=Marcus+C.",
+    "socialLinks": [
+      { "iconName": "github", "url": "https://github.com/marcuschenui", "ariaLabel": "Marcus Chen on GitHub" },
+      { "iconName": "twitter", "url": "https://twitter.com/marcuschenui", "ariaLabel": "Marcus Chen on Twitter" }
+    ]
+  },
+  {
+    "id": "speaker-3",
+    "name": "Aisha Khan",
+    "talkTitle": "The Power of Community: Building with GDGs",
+    "bio": "Aisha is a passionate community builder, GDG organizer, and Women Techmakers Ambassador. She champions diversity and inclusion in tech.",
+    "photoUrl": "https://placehold.co/300x300/D291BC/957DAD/png?text=Aisha+K.",
+    "socialLinks": [
+      { "iconName": "linkedin", "url": "https://linkedin.com/in/aishakhancommunity", "ariaLabel": "Aisha Khan on LinkedIn" }
+    ]
+  },
+  {
+    "id": "speaker-4",
+    "name": "Ben Carter",
+    "talkTitle": "Optimizing Core Web Vitals in Angular Applications",
+    "bio": "Ben is a performance engineer focused on helping teams build faster and more reliable web experiences. He's a Core Web Vitals advocate and loves diving into browser internals.",
+    "photoUrl": "https://placehold.co/300x300/FEC8D8/957DAD/png?text=Ben+C.",
+    "socialLinks": [
+      { "iconName": "twitter", "url": "https://twitter.com/bencarterperf", "ariaLabel": "Ben Carter on Twitter" }
+    ]
+  }
+]

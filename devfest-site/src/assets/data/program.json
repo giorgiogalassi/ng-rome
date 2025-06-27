@@ -1,0 +1,29 @@
+{
+  "sectionTitle": "Glimpse into Our Program",
+  "agendaBlocks": [
+    {
+      "id": "morning",
+      "title": "Morning Kick-off & Deep Dives",
+      "timeRange": "9:00 AM - 1:00 PM",
+      "description": "Start your day with registration, followed by an inspiring Welcome Keynote. Then, dive into parallel tracks of in-depth Technical Sessions covering the latest in Web, Mobile, AI, and Cloud technologies led by industry experts."
+    },
+    {
+      "id": "lunch",
+      "title": "Networking Lunch",
+      "timeRange": "1:00 PM - 2:00 PM",
+      "description": "Recharge and connect with fellow attendees, speakers, and sponsors over a delicious complimentary lunch. Share insights and make new connections in a relaxed atmosphere."
+    },
+    {
+      "id": "afternoon",
+      "title": "Afternoon Workshops & Talks",
+      "timeRange": "2:00 PM - 6:00 PM",
+      "description": "Engage in practical, hands-on Workshops, catch quick and impactful Lightning Talks on innovative projects, and explore our Community Showcase featuring local tech talent and initiatives."
+    },
+    {
+      "id": "afterparty",
+      "title": "DevFest After Party!",
+      "timeRange": "7:00 PM onwards",
+      "description": "Unwind and celebrate a day of learning and collaboration! Join us for an evening of music, refreshments, games, and more networking opportunities. Don't miss out on the fun!"
+    }
+  ]
+}

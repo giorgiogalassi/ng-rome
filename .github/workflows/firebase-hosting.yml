@@ -1,0 +1,42 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main # For preview channels
+      - release # For production deployment
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    env:
+      # Set the working directory for Angular project commands
+      ANGULAR_PROJECT_PATH: ./devfest-site
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Specify your Node.js version
+
+      - name: Install Angular CLI globally (if needed for specific commands, though npm scripts should use local)
+        run: npm install -g @angular/cli@20
+
+      - name: Install Dependencies
+        working-directory: ${{ env.ANGULAR_PROJECT_PATH }}
+        run: npm ci
+
+      - name: Build and Prerender
+        working-directory: ${{ env.ANGULAR_PROJECT_PATH }}
+        run: npm run prerender # This runs 'ng build' which includes prerendering
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEVFEST_SITE }}' # Or use FIREBASE_CLI_TOKEN
+          channelId: ${{ github.ref == 'refs/heads/main' && 'preview' || '' }} # Deploy to 'preview' channel for main, default for release
+          projectId: "<YOUR_FIREBASE_PROJECT_ID>" # User must replace this with their Firebase project ID
+          target: devfest-site # Optional: if you have multiple hosting targets
+          entryPoint: ${{ env.ANGULAR_PROJECT_PATH }} # Specifies the root of the Firebase project (where firebase.json is)
