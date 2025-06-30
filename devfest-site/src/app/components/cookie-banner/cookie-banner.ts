@@ -8,10 +8,12 @@ declare global {
   }
 }
 
+import { MatButtonModule } from '@angular/material/button'; // Import MatButtonModule
+
 @Component({
   selector: 'app-cookie-banner',
   standalone: true,
-  imports: [CommonModule], // Add CommonModule here
+  imports: [CommonModule, MatButtonModule], // Added MatButtonModule
   template: `
     <div *ngIf="showBanner" class="cookie-banner-container" role="region" aria-label="Cookie Consent Banner">
       <div class="banner-content">
@@ -20,8 +22,8 @@ declare global {
           By clicking "Accept", you consent to our use of cookies for analytics.
         </p>
         <div class="banner-actions">
-          <button (click)="acceptCookies()" class="accept-button" aria-label="Accept cookies">Accept</button>
-          <!-- <button (click)="declineCookies()" class="decline-button" aria-label="Decline cookies">Decline</button> -->
+          <button mat-flat-button color="accent" (click)="acceptCookies()" aria-label="Accept cookies">Accept</button>
+          {/* <button mat-stroked-button (click)="declineCookies()" aria-label="Decline cookies">Decline</button> */}
         </div>
       </div>
     </div>
@@ -29,58 +31,28 @@ declare global {
   styles: [`
     :host { display: block; }
     .cookie-banner-container {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: #2c3e50; /* Dark background */
-      color: #ecf0f1; /* Light text */
-      padding: 1rem;
-      z-index: 1000;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @apply fixed bottom-0 left-0 right-0 p-4 z-[1000] shadow-[0_-2px_10px_rgba(0,0,0,0.2)] flex justify-center items-center;
+      @apply bg-google-gray-700 text-google-gray-50; /* Use Google Gray theme */
     }
     .banner-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-      max-width: 800px;
-      text-align: center;
+      @apply flex flex-col items-center gap-3 max-w-3xl text-center md:flex-row md:text-left; /* Responsive flex direction */
     }
     .banner-content p {
-      margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.4;
+      @apply m-0 text-sm leading-normal flex-grow; /* Allow text to take space */
     }
     .banner-actions {
-      display: flex;
-      gap: 1rem;
+      @apply flex gap-4 flex-shrink-0; /* Prevent actions from shrinking too much */
     }
-    .banner-actions button {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .accept-button {
-      background-color: #27ae60; /* Green */
-      color: white;
-    }
+    /* Removed custom button styles, relying on mat-flat-button and theme */
     /*
     .decline-button {
-      background-color: #c0392b; // Red
-      color: white;
+      @apply bg-google-red-500 text-white; // Use Google Red (warn)
     }
     */
 
     @media (min-width: 600px) {
       .banner-content {
-        flex-direction: row;
-        text-align: left;
+        @apply flex-row text-left;
       }
     }
   `]

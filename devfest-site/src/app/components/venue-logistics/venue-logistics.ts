@@ -26,21 +26,25 @@ interface SanitizedVenueInfo extends Omit<VenueInfo, 'googleMapsEmbedUrl'> {
     MatIconModule
   ],
   template: `
-    <section class="venue-logistics-section">
-      <h2 class="section-title">Venue & Logistics</h2>
-      <div *ngIf="venueInfo$ | async as venue; else loadingOrError" class="venue-content-grid">
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-google-gray-50">
+      <div class="max-w-6xl mx-auto"> {/* Wider max-width for this section */}
+        <h2 class="text-3xl md:text-4xl font-bold text-google-gray-800 mb-10 text-center">Venue & Logistics</h2>
+        <div *ngIf="venueInfo$ | async as venue; else loadingOrError" class="venue-content-grid">
 
-        <mat-card class="venue-details-card">
-          <mat-card-header>
-            <mat-card-title>{{ venue.name }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p class="address"><mat-icon>location_on</mat-icon> {{ venue.address }}</p>
+          <mat-card class="venue-details-card">
+            <mat-card-header>
+              <mat-card-title>{{ venue.name }}</mat-card-title> {/* Theme will style this */}
+            </mat-card-header>
+            <mat-card-content>
+              <p class="address text-lg text-google-gray-700 mb-6 flex items-center gap-2">
+                <mat-icon>location_on</mat-icon>
+                <span>{{ venue.address }}</span>
+              </p>
 
-            <h3 class="subsection-title">How to Reach Us</h3>
-            <mat-tab-group animationDuration="0ms">
-              <mat-tab>
-                <ng-template mat-tab-label>
+              <h3 class="text-xl font-semibold text-google-gray-800 mt-6 mb-4">How to Reach Us</h3>
+              <mat-tab-group animationDuration="0ms">
+                <mat-tab>
+                  <ng-template mat-tab-label>
                   <mat-icon class="tab-icon">directions_car</mat-icon> By Car
                 </ng-template>
                 <mat-list role="list">
@@ -99,42 +103,12 @@ interface SanitizedVenueInfo extends Omit<VenueInfo, 'googleMapsEmbedUrl'> {
   styles: [`
     :host {
       display: block;
-      padding: 2rem 1rem;
-      background-color: #f0f0f0; /* Section background */
+      /* Background and padding now handled by Tailwind in template */
     }
-    .venue-logistics-section {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-title {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-      color: #333;
-      text-align: center;
-    }
-    .venue-content-grid {
-      display: grid;
-      grid-template-columns: 1fr; /* Default to single column for mobile */
-      gap: 2rem;
-    }
-    @media (min-width: 960px) { /* Larger screens: 2 columns */
-      .venue-content-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    .venue-details-card .address {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .venue-details-card .subsection-title {
-      font-size: 1.3rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-    }
+    /* .venue-logistics-section, .section-title, .venue-content-grid,
+       .venue-details-card .address, .venue-details-card .subsection-title
+       are now styled via Tailwind classes in the template. */
+
     .tab-icon {
       margin-right: 8px;
     }

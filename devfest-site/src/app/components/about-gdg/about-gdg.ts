@@ -16,75 +16,49 @@ import { ContentService, AboutInfo } from '../../services/content';
     MatButtonModule
   ],
   template: `
-    <section class="about-gdg-section">
-      <div *ngIf="aboutInfo$ | async as about; else loadingOrError" class="about-content">
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-google-gray-50 text-google-gray-800">
+      <div class="max-w-3xl mx-auto about-content"> {/* Max width for readability */}
 
-        <mat-card class="content-card">
+        <mat-card class="mb-8"> {/* Added margin bottom for spacing between cards */}
           <mat-card-header>
-            <mat-card-title>About GDG</mat-card-title>
+            <mat-card-title class="text-2xl font-semibold mb-2">About GDG</mat-card-title> {/* Tailwind for title */}
           </mat-card-header>
           <mat-card-content>
-            <p [innerHTML]="formatText(about.gdgDescription)"></p>
+            <p class="leading-relaxed" [innerHTML]="formatText(aboutInfo.gdgDescription)"></p>
           </mat-card-content>
         </mat-card>
 
-        <mat-card class="content-card">
+        <mat-card>
           <mat-card-header>
-            <mat-card-title>Code of Conduct</mat-card-title>
+            <mat-card-title class="text-2xl font-semibold mb-2">Code of Conduct</mat-card-title> {/* Tailwind for title */}
           </mat-card-header>
           <mat-card-content>
-            <p *ngIf="about.codeOfConduct.summary" [innerHTML]="formatText(about.codeOfConduct.summary)"></p>
+            <p *ngIf="aboutInfo.codeOfConduct.summary" class="leading-relaxed mb-4" [innerHTML]="formatText(aboutInfo.codeOfConduct.summary)"></p>
             <a mat-stroked-button
-               [href]="about.codeOfConduct.fullTextLink"
+               color="primary" {/* Use theme color for button */}
+               [href]="aboutInfo.codeOfConduct.fullTextLink"
                target="_blank"
                rel="noopener noreferrer"
-               class="coc-link">
-              {{ about.codeOfConduct.linkText }}
+               class="mt-4 inline-block">
+              {{ aboutInfo.codeOfConduct.linkText }}
             </a>
           </mat-card-content>
         </mat-card>
 
       </div>
       <ng-template #loadingOrError>
-        <p>Loading information...</p>
+        <div class="max-w-3xl mx-auto py-12 px-4 text-center">
+            <p>Loading information...</p>
+        </div>
       </ng-template>
     </section>
   `,
   styles: [`
     :host {
       display: block;
-      padding: 2rem 1rem;
-      background-color: #f9f9f9; /* Light background for the section */
     }
-    .about-gdg-section {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr; /* Single column for mobile */
-      gap: 2rem;
-    }
-    @media (min-width: 768px) { /* Two columns for larger screens if desired, or keep single for readability */
-      .about-content {
-        /* grid-template-columns: 1fr 1fr; */ /* Can enable if two distinct blocks are desired side-by-side */
-      }
-    }
-    .content-card mat-card-title {
-      font-size: 1.6rem; /* Slightly larger title for these info cards */
-      margin-bottom: 0.5rem;
-    }
-    .content-card mat-card-content p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    .content-card mat-card-content p:last-child {
-      margin-bottom: 0;
-    }
-    .coc-link {
-      margin-top: 1rem;
-      display: inline-block; /* Or block if it should take full width */
-    }
+    /* .about-content can remain single column or be made grid via Tailwind if needed */
+    /* Removed most styles as they are now handled by Tailwind or Material theme */
   `]
 })
 export class AboutGdgComponent implements OnInit {

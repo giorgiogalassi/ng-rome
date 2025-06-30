@@ -18,9 +18,9 @@ interface DisplayLandingInfo extends LandingInfo {
     <section *ngIf="landingInfo$ | async as info; else loading"
       class="hero-section text-center
              flex flex-col justify-center items-center
-             min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)]
+             min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] /* Adjust based on actual sticky header height */
              py-12 px-4 sm:px-6 lg:px-8
-             bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-700 text-white">
+             bg-google-blue-500 text-white"> {/* Use Google Blue primary and white text */}
       <div class="hero-content max-w-2xl">
         <p class="event-date text-xl md:text-2xl font-light opacity-90 mb-3 tracking-wide">
           {{ info.eventDate }}
@@ -31,6 +31,7 @@ interface DisplayLandingInfo extends LandingInfo {
         <p class="event-payoff text-lg md:text-xl opacity-90 mb-10">
           {{ info.eventPayoff }}
         </p>
+        {/* CTA button will use 'accent' (Google Green) from Material theme */}
         <a mat-flat-button
            color="accent"
            [href]="info.ticketLink"
@@ -43,8 +44,8 @@ interface DisplayLandingInfo extends LandingInfo {
       </div>
     </section>
     <ng-template #loading>
-      <section class="hero-section text-center flex flex-col justify-center items-center min-h-[calc(100vh-64px)] py-12 px-4 bg-gray-100">
-        <!-- Assuming info object is not available in #loading, so using a default or fetching separately if needed -->
+      {/* Loading state with a neutral background */}
+      <section class="hero-section text-center flex flex-col justify-center items-center min-h-[calc(100vh-64px)] py-12 px-4 bg-google-gray-50 text-google-gray-800">
         <p>{{ (landingInfo$ | async)?.loadingMessage || 'Loading...' }}</p>
       </section>
     </ng-template>

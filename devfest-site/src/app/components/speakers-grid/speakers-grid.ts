@@ -80,19 +80,12 @@ import { Observable } from 'rxjs';
     .speaker-card mat-card-header {
       padding-bottom: 0.5rem;
     }
-    .speaker-card mat-card-title {
-      font-size: 1.3rem;
-    }
+    /* Removed explicit font-size/color for title, subtitle, content p
+       to allow Material theme to control them for consistency.
+       Min-height for subtitle is kept for layout stability. */
     .speaker-card mat-card-subtitle {
-      font-size: 0.95rem;
       min-height: 3em;
-      line-height: 1.5em;
-      color: #555;
-    }
-    .speaker-card mat-card-content p {
-      font-size: 0.9rem;
-      line-height: 1.4;
-      color: #444;
+      line-height: 1.5em; /* Ensure line-height is set if min-height in em is used */
     }
     .speaker-card mat-card-actions {
       padding: 8px 16px;

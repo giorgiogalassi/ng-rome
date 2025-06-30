@@ -18,76 +18,43 @@ import { ContentService, FooterInfo } from '../../services/content'; // SocialLi
     MatIconModule
   ],
   template: `
-    <footer class="site-footer" *ngIf="footerInfo$ | async as footer; else loading">
-      <div class="footer-content">
-        <div class="social-links" *ngIf="footer.socialLinks && footer.socialLinks.length > 0">
+    <footer class="bg-google-gray-800 text-google-gray-200 py-8 px-4 text-center"
+            *ngIf="footerInfo$ | async as footer; else loading">
+      <div class="max-w-4xl mx-auto flex flex-col items-center gap-6">
+        <div class="social-links flex gap-3" *ngIf="footer.socialLinks && footer.socialLinks.length > 0">
           <a *ngFor="let link of footer.socialLinks"
              mat-icon-button
              [href]="link.url"
              target="_blank"
              [attr.aria-label]="link.ariaLabel"
-             [title]="link.ariaLabel">
-            <mat-icon [svgIcon]="getSvgIconName(link.iconName)"></mat-icon>
+             [title]="link.ariaLabel"
+             class="text-google-gray-50 hover:text-google-gray-300">
+            <mat-icon [svgIcon]="getSvgIconName(link.iconName)" class="social-icon"></mat-icon>
           </a>
         </div>
 
         <div class="contact-info" *ngIf="footer.contactEmail">
-          <a [href]="'mailto:' + footer.contactEmail">{{ footer.contactEmail }}</a>
+          <a [href]="'mailto:' + footer.contactEmail" class="hover:underline">{{ footer.contactEmail }}</a>
         </div>
 
         <div class="copyright" *ngIf="footer.copyrightText">
-          <p>{{ footer.copyrightText }}</p>
+          <p class="text-sm text-google-gray-400">{{ footer.copyrightText }}</p>
         </div>
       </div>
     </footer>
     <ng-template #loading>
-      <footer class="site-footer placeholder">
+      <footer class="bg-google-gray-800 text-google-gray-200 py-8 px-4 text-center min-h-[100px]">
         <p>Loading footer...</p>
       </footer>
     </ng-template>
   `,
   styles: [`
     :host { display: block; }
-    .site-footer {
-      background-color: #333; /* Dark background for footer */
-      color: #ccc;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .site-footer.placeholder {
-      min-height: 100px; /* Placeholder height */
-    }
-    .footer-content {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .social-links {
-      display: flex;
-      gap: 0.75rem; /* Gap between icons */
-    }
-    .social-links a mat-icon {
-      fill: #fff; /* SVG fill color */
-      width: 24px; /* Standard icon size */
+    /* Custom styles for SVG fill if Tailwind classes don't target it effectively */
+    .social-icon {
+      fill: currentColor; /* Inherits text color from parent 'a' tag */
+      width: 24px;
       height: 24px;
-    }
-    .social-links a:hover mat-icon {
-      fill: #aaa; /* SVG fill color on hover */
-    }
-    .contact-info a {
-      color: #eee;
-      text-decoration: none;
-    }
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
-    .copyright p {
-      font-size: 0.9rem;
-      color: #aaa;
-      margin: 0;
     }
   `]
 })

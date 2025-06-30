@@ -12,11 +12,12 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [CommonModule, MatCardModule],
   template: `
-    <section class="program-preview-section" *ngIf="programInfo$ | async as program; else loading">
-      <h2 class="section-title">{{ program.sectionTitle }}</h2>
-      <div class="agenda-blocks-container" *ngIf="program.agendaBlocks && program.agendaBlocks.length > 0">
-        <mat-card *ngFor="let block of program.agendaBlocks" [attr.aria-labelledby]="block.id + '-title'">
-          <mat-card-header>
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-google-gray-50" *ngIf="programInfo$ | async as program; else loading">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-google-gray-800 mb-10">{{ program.sectionTitle }}</h2>
+        <div class="agenda-blocks-container" *ngIf="program.agendaBlocks && program.agendaBlocks.length > 0">
+          <mat-card *ngFor="let block of program.agendaBlocks" class="text-left" [attr.aria-labelledby]="block.id + '-title'">
+            <mat-card-header>
             <mat-card-title [id]="block.id + '-title'">{{ block.title }}</mat-card-title>
             <mat-card-subtitle>{{ block.timeRange }}</mat-card-subtitle>
           </mat-card-header>
@@ -39,19 +40,13 @@ import { Observable } from 'rxjs';
   styles: [`
     :host {
       display: block;
-      padding: 2rem 1rem;
-      background-color: #f9f9f9;
+      /* Tailwind classes for padding and background applied in template if preferred, or use SCSS variables */
     }
     .program-preview-section {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
+      /* Using Tailwind classes in template for these now */
     }
     .section-title {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-      color: #333;
+      /* Using Tailwind classes in template for these now */
     }
     .agenda-blocks-container {
       display: grid;
@@ -59,13 +54,11 @@ import { Observable } from 'rxjs';
       gap: 1.5rem;
       text-align: left;
     }
-    mat-card-title {
-      font-size: 1.4rem;
-    }
-    mat-card-subtitle {
-      font-size: 1rem;
-      color: #666;
-    }
+    /* Removed explicit font-size for mat-card-title and mat-card-subtitle
+       to allow Material theme to control them for consistency.
+       The theme typically sets them to Title Medium and Body Medium/Small.
+       Custom color for subtitle also removed, will rely on theme's secondary text color.
+    */
   `]
 })
 export class ProgramPreviewComponent implements OnInit {
